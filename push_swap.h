@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:55:18 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/12 23:29:08 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/12 23:49:35 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void				ft_clean_and_free(t_list **stack_a, t_list **stack_b);
 int					ft_find_max(t_list *lst);
 int					ft_find_min(t_list *lst);
 //Src/ft_argtoint.c
-int					ft_argtoint(char *str);
+long				ft_argtoint(char *str);
 //Src/ft_split.c
 char				**ft_split(char const *s, char c);
 //Src/ft_substr.c

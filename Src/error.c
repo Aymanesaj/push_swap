@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:45:32 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/12 20:52:18 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/13 09:50:07 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,7 @@ void	ft_check_double(t_list **stack_a)
 		while (tmp->next)
 		{
 			if (head->num == tmp->next->num)
-			{
-				ft_remove(stack_a, ft_lstsize(*stack_a));
-				ft_printf("Error\n");
-				exit(1);
-			}
+				ft_clean_and_free(stack_a, NULL);
 			tmp = tmp->next;
 		}
 		head = head->next;
@@ -56,8 +52,10 @@ void	ft_check_double(t_list **stack_a)
 
 void	ft_clean_and_free(t_list **stack_a, t_list **stack_b)
 {
-	ft_remove(stack_a, ft_lstsize(*stack_a));
-	ft_remove(stack_b, ft_lstsize(*stack_b));
+	if (stack_a)
+		ft_remove(stack_a, ft_lstsize(*stack_a));
+	if (stack_b)
+		ft_remove(stack_b, ft_lstsize(*stack_b));
 	ft_printf("Error\n");
 	exit(1);
 }

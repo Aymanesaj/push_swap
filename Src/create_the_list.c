@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:48:57 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/12 22:48:33 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/13 09:37:03 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,10 @@ int	split_and_addto_list(char *str, t_list **stack_a)
 
 void	create_stack_a(char **av, t_list **stack_a)
 {
-	int	i;
-	int	j;
-	int	num;
+	int		i;
+	long	num;
 
 	i = 0;
-	j = 0;
 	while (av[i])
 	{
 		if (ft_checkargs(av[i]) > 1)
@@ -78,6 +76,12 @@ void	create_stack_a(char **av, t_list **stack_a)
 		else
 		{
 			num = ft_argtoint(av[i]);
+			if (num > 2147483647 || num < -2147483648)
+			{
+				ft_remove(stack_a, ft_lstsize(*stack_a));
+				ft_printf("Error\n");
+				exit (1);
+			}
 			ft_lstadd_back(stack_a, num);
 		}
 		i++;

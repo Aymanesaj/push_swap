@@ -6,11 +6,12 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:45:28 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/12 23:30:59 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/13 09:45:51 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf/libftprintf.h"
+#include <stdio.h>
 #include "push_swap.h"
 
 void	print_list(t_list *head)
@@ -22,7 +23,7 @@ void	print_list(t_list *head)
 	}
 	while (head)
 	{
-		ft_printf("%d ->", head->num);
+		ft_printf("%d -> ", head->num);
 		head = head->next;
 	}
 	ft_printf("NULL\n");
@@ -42,9 +43,11 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	stack_a = NULL;
+	stack_b = NULL;
 	create_stack_a(av, &stack_a);
 	ft_check_double(&stack_a);
 	if (ft_lstsize(stack_a) <= 10)
 		ft_sort_low(&stack_a, &stack_b);
+	// else if (ft_lstsize(stack_a) > 10)
 	print_list(stack_a);
 }

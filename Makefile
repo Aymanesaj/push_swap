@@ -7,7 +7,7 @@ SRC = push_swap.c Src/create_the_list.c\
 Src/check.c  Src/error.c  Src/low_sort.c\
 Src/parsing.c  Src/push.c  Src/reverse_rotate.c\
 Src/rotate.c Src/swap.c  Src/ft_split.c  Src/ft_substr.c\
-Src/ft_argtoint.c Src/find.c Src/low_sort.c
+Src/ft_argtoint.c Src/find.c
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
