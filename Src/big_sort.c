@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:41:10 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/14 15:02:10 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 15:11:10 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,27 @@ void	sort_list(int *sorted, int size)
 	}
 }
 
-void	sorted_array(t_list **stack_a, int **sorted)
+int	*sorted_array(t_list **stack_a)
 {
 	t_list	*tmp;
+	int		*sorted;
 	int		i;
 	int		size;
 
 	tmp = *stack_a;
 	i = 0;
 	size = ft_lstsize(*stack_a);
-	*sorted = malloc(sizeof(int) * size);
-	if (!(*sorted))
-		return ;
+	sorted = malloc(sizeof(int) * size);
+	if (!(sorted))
+		return (NULL);
 	while (tmp)
 	{
-		(*sorted)[i] = tmp->num;
+		(sorted)[i] = tmp->num;
 		tmp = tmp->next;
 		i++;
 	}
-	sort_list(*sorted, size);
+	sort_list(sorted, size);
+	return (sorted);
 }
 
 void	push_back(t_list **stack_b, t_list **stack_a)
@@ -100,7 +102,7 @@ void	big_sort(t_list **stack_a, t_list **stack_b, int offset)
 
 	i = 0;
 	size = ft_lstsize(*stack_a);
-	sorted_array(stack_a, &sorted);
+	sorted = sorted_array(stack_a);
 	while (ft_lstsize(*stack_a))
 	{
 		if (i + offset > size)
