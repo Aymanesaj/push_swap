@@ -12,15 +12,15 @@
 
 #include "../push_swap.h"
 
-void	ft_remove(t_list **list, int index)
+void	ft_remove(t_list **list)
 {
 	t_list	*tmp;
 	t_list	*next;
 
-	if (!list || !(*list) || index < 0)
+	if (!list || !(*list))
 		return ;
 	tmp = *list;
-	while (tmp && index--)
+	while (tmp)
 	{
 		next = tmp->next;
 		free(tmp);
@@ -53,9 +53,9 @@ void	ft_check_double(t_list **stack_a)
 void	ft_clean_and_free(t_list **stack_a, t_list **stack_b)
 {
 	if (stack_a)
-		ft_remove(stack_a, ft_lstsize(*stack_a));
+		ft_remove(stack_a);
 	if (stack_b)
-		ft_remove(stack_b, ft_lstsize(*stack_b));
+		ft_remove(stack_b);
 	ft_printf("Error\n");
 	exit(1);
 }

@@ -78,7 +78,7 @@ void	create_stack_a(char **av, t_list **stack_a)
 			num = ft_argtoint(av[i]);
 			if (num > 2147483647 || num < -2147483648)
 			{
-				ft_remove(stack_a, ft_lstsize(*stack_a));
+				ft_remove(stack_a);
 				ft_printf("Error\n");
 				exit (1);
 			}

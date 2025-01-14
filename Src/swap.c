@@ -12,6 +12,15 @@
 
 #include "../push_swap.h"
 
+void	ft_swap_int(int *sorted)
+{
+	int	tmp;
+
+	tmp = sorted[0];
+	sorted[0] = sorted[1];
+	sorted[1] = tmp;
+}
+
 void	ft_swap(t_list *stack)
 {
 	int	tmp;

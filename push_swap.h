@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:55:18 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/12 23:49:35 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 13:56:37 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct s_list
 	int				num;
 	struct s_list	*next;
 }					t_list;
+// Src/big_sort.c
+void				big_sort(t_list **stack_a, t_list **stack_b, int offset);
 // Src/create_the_list.c
 void				ft_lstadd_back(t_list **lst, int num);
 t_list				*create_node(int num);
@@ -30,12 +32,13 @@ int					ft_is_sorted(t_list *head);
 int					ft_lstsize(t_list *lst);
 int					ft_checkargs(char *s);
 // Src/Error.c
-void				ft_remove(t_list **list, int index);
+void				ft_remove(t_list **list);
 void				ft_check_double(t_list **stack_a);
 void				ft_clean_and_free(t_list **stack_a, t_list **stack_b);
 //Src/find.c
 int					ft_find_max(t_list *lst);
 int					ft_find_min(t_list *lst);
+int					ft_index(t_list *lst, int min);
 //Src/ft_argtoint.c
 long				ft_argtoint(char *str);
 //Src/ft_split.c
@@ -59,6 +62,7 @@ void				ra(t_list **stack_a);
 void				rb(t_list **stack_b);
 void				rr(t_list **stack_a, t_list **stack_b);
 // Src/swap.c
+void				ft_swap_int(int *sorted);
 void				sa(t_list *stack_a);
 void				sb(t_list *stack_b);
 void				ss(t_list *stack_a, t_list *stack_b);
