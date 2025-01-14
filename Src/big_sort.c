@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:41:10 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/14 15:11:10 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 15:24:30 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	big_sort(t_list **stack_a, t_list **stack_b, int offset)
 			i++;
 		}
 		else if ((*stack_a)->num > sorted[i] && (*stack_a)->num <= sorted[i
-				+ offset])
+				+ offset - 1])
 		{
 			pb(stack_b, stack_a);
 			i++;

@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:45:32 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/13 09:50:07 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 16:31:38 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	ft_clean_and_free(t_list **stack_a, t_list **stack_b)
 		ft_remove(stack_a);
 	if (stack_b)
 		ft_remove(stack_b);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(1);
 }
