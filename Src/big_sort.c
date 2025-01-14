@@ -6,13 +6,13 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:41:10 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/14 14:34:20 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 15:02:10 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_list(int *sorted)
+void	sort_list(int *sorted, int size)
 {
 	int	i;
 	int	swapped;
@@ -23,16 +23,37 @@ void	sort_list(int *sorted)
 	{
 		swapped = 0;
 		i = 0;
-		while (sorted[i] && sorted[i + 1])
+		while (i < size - 1)
 		{
 			if (sorted[i] > sorted[i + 1])
 			{
-				ft_swap_int(&sorted[i]);
+				ft_swap_int(sorted, i);
 				swapped = 1;
 			}
 			i++;
 		}
 	}
+}
+
+void	sorted_array(t_list **stack_a, int **sorted)
+{
+	t_list	*tmp;
+	int		i;
+	int		size;
+
+	tmp = *stack_a;
+	i = 0;
+	size = ft_lstsize(*stack_a);
+	*sorted = malloc(sizeof(int) * size);
+	if (!(*sorted))
+		return ;
+	while (tmp)
+	{
+		(*sorted)[i] = tmp->num;
+		tmp = tmp->next;
+		i++;
+	}
+	sort_list(*sorted, size);
 }
 
 void	push_back(t_list **stack_b, t_list **stack_a)
@@ -51,25 +72,6 @@ void	push_back(t_list **stack_b, t_list **stack_a)
 		else
 			rb(stack_b);
 	}
-}
-
-void	sorted_array(t_list **stack_a, int **sorted)
-{
-	t_list	*tmp;
-	int		i;
-
-	tmp = *stack_a;
-	i = 0;
-	*sorted = malloc(sizeof(int) * ft_lstsize(*stack_a));
-	if (!(*sorted))
-		return ;
-	while (tmp)
-	{
-		(*sorted)[i] = tmp->num;
-		tmp = tmp->next;
-		i++;
-	}
-	sort_list(*sorted);
 }
 
 void	ra_or_rra(t_list **stack_a, int i, int offset, int *sorted)

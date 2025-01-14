@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:55:18 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/14 13:56:37 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 14:51:54 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void				ra(t_list **stack_a);
 void				rb(t_list **stack_b);
 void				rr(t_list **stack_a, t_list **stack_b);
 // Src/swap.c
-void				ft_swap_int(int *sorted);
+void				ft_swap_int(int *sorted, int i);
 void				sa(t_list *stack_a);
 void				sb(t_list *stack_b);
 void				ss(t_list *stack_a, t_list *stack_b);

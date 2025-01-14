@@ -6,19 +6,19 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 16:02:36 by asajed            #+#    #+#             */
-/*   Updated: 2024/12/30 15:08:26 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 14:51:20 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_swap_int(int *sorted)
+void	ft_swap_int(int *sorted, int i)
 {
 	int	tmp;
 
-	tmp = sorted[0];
-	sorted[0] = sorted[1];
-	sorted[1] = tmp;
+	tmp = sorted[i];
+	sorted[i] = sorted[i + 1];
+	sorted[i + 1] = tmp;
 }
 
 void	ft_swap(t_list *stack)
