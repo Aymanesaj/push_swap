@@ -1,4 +1,4 @@
-CC = cc
+CC = cc #-fsanitize=address -g3
 CFLAGS = -Wall -Wextra -Werror
 PRINTF = ft_printf/libftprintf.a
 NAME = push_swap

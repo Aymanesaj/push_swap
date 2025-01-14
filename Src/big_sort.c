@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:41:10 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/14 14:06:24 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 14:34:20 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,5 @@ void	big_sort(t_list **stack_a, t_list **stack_b, int offset)
 			ra_or_rra(stack_a, i, offset, sorted);
 	}
 	push_back(stack_b, stack_a);
-	// free(sorted);
+	free(sorted);
 }

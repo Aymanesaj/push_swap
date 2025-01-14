@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:45:28 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/13 09:45:51 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 14:25:49 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,19 @@ int ft_range(t_list *stack_a)
 		return (35);
 }
 
+// ft_clear(t_list **stack_a, t_list **stack_b)
+// {
+// 	ft_remove(stack_a);
+// 	ft_remove(stack_b);
+// }
+
 int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
 
+	stack_a = NULL;
+	stack_b = NULL;
 	if (ac <= 1)
 		return (0);
 	av += 1;
@@ -57,14 +65,18 @@ int	main(int ac, char **av)
 		ft_printf("Error\n");
 		return (1);
 	}
-	stack_a = NULL;
-	stack_b = NULL;
 	create_stack_a(av, &stack_a);
 	ft_check_double(&stack_a);
+	// if (ft_is_sorted(*stack_a))
+	// {
+	// 	ft_clear(&stack_a, &stack_b);
+	// 	return (1);
+	// }
 	if (ft_lstsize(stack_a) <= 10)
 		ft_sort_low(&stack_a, &stack_b);
 	else if (ft_lstsize(stack_a) > 10)
 		big_sort(&stack_a, &stack_b, ft_range(stack_a));
+	// ft_clear(&stack_a, &stack_b);
 	ft_remove(&stack_a);
 	ft_remove(&stack_b);
 }
