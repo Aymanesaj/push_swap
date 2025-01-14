@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 23:44:18 by asajed            #+#    #+#             */
-/*   Updated: 2024/12/01 14:38:55 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 20:27:41 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFTPRINTF_H
 
 # include <stdarg.h>
-# include <stdio.h>
 # include <unistd.h>
 
 int		ft_putchar(char c);

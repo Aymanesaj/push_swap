@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:45:37 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/13 10:39:37 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 20:39:35 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	valid_number(char *str)
 	{
 		if (ft_isdigit(str[i]))
 			j = number_length(str + i);
-		if (j > 9)
+		if (j > 10)
 			return (0);
 		i++;
 	}
@@ -60,8 +60,8 @@ int	check_spaces(char *str)
 
 int	valid_argument(char *str)
 {
-	int i;
-	int num_started;
+	int	i;
+	int	num_started;
 
 	i = 0;
 	num_started = 0;
@@ -69,8 +69,8 @@ int	valid_argument(char *str)
 	{
 		if (str[i] == ' ')
 			num_started = 0;
-		else if ((str[i] == '-' || str[i] == '+') && !num_started
-				&& str[i + 1] && ft_isdigit(str[i + 1]))
+		else if ((str[i] == '-' || str[i] == '+') && !num_started && str[i + 1]
+			&& ft_isdigit(str[i + 1]))
 			num_started = 1;
 		else if (ft_isdigit(str[i]))
 			num_started = 1;

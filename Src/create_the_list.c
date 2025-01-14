@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:48:57 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/13 09:37:03 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 16:41:28 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ void	create_stack_a(char **av, t_list **stack_a)
 			if (num > 2147483647 || num < -2147483648)
 			{
 				ft_remove(stack_a);
-				ft_printf("Error\n");
-				exit (1);
+				write(2, "Error\n", 6);
+				exit(1);
 			}
 			ft_lstadd_back(stack_a, num);
 		}

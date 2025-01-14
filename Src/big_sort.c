@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:41:10 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/14 15:24:30 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 21:08:08 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,24 +58,6 @@ int	*sorted_array(t_list **stack_a)
 	return (sorted);
 }
 
-void	push_back(t_list **stack_b, t_list **stack_a)
-{
-	int	max_index;
-
-	while (ft_lstsize(*stack_b))
-	{
-		max_index = ft_index(*stack_b, ft_find_max(*stack_b));
-		if (max_index == 0)
-			pa(stack_a, stack_b);
-		else if (max_index == 1)
-			sb(*stack_b);
-		else if (max_index >= (ft_lstsize(*stack_b) / 2))
-			rrb(stack_b);
-		else
-			rb(stack_b);
-	}
-}
-
 void	ra_or_rra(t_list **stack_a, int i, int offset, int *sorted)
 {
 	t_list	*tmp;
@@ -94,12 +76,17 @@ void	ra_or_rra(t_list **stack_a, int i, int offset, int *sorted)
 		ra(stack_a);
 }
 
+void	push_to_b(t_list	**stack_a, t_list	**stack_b)
+{
+	pb(stack_b, stack_a);
+	if (ft_lstsize(*stack_b) > 1
+		&& (*stack_b)->num < (*stack_b)->next->num)
+		rb(stack_b);
+}
+
 void	big_sort(t_list **stack_a, t_list **stack_b, int offset)
 {
-	int	*sorted;
-	int	i;
-	int	size;
-
+	int (*sorted), (i), (size);
 	i = 0;
 	size = ft_lstsize(*stack_a);
 	sorted = sorted_array(stack_a);
@@ -109,10 +96,7 @@ void	big_sort(t_list **stack_a, t_list **stack_b, int offset)
 			offset = size - i;
 		if ((*stack_a)->num <= sorted[i])
 		{
-			pb(stack_b, stack_a);
-			if (ft_lstsize(*stack_b) > 1
-				&& (*stack_b)->num < (*stack_b)->next->num)
-				rb(stack_b);
+			push_to_b(stack_a, stack_b);
 			i++;
 		}
 		else if ((*stack_a)->num > sorted[i] && (*stack_a)->num <= sorted[i
@@ -124,6 +108,5 @@ void	big_sort(t_list **stack_a, t_list **stack_b, int offset)
 		else
 			ra_or_rra(stack_a, i, offset, sorted);
 	}
-	push_back(stack_b, stack_a);
-	free(sorted);
+	(push_back(stack_b, stack_a), free(sorted));
 }

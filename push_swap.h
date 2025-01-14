@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:55:18 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/14 14:51:54 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 20:44:19 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int					are_all_numbers(char **av);
 // Src/push.c
 void				pa(t_list **stack_a, t_list **stack_b);
 void				pb(t_list **stack_b, t_list **stack_a);
+void				push_back(t_list **stack_b, t_list **stack_a);
 // Src/reverse_rotate.c
 void				rra(t_list **stack_a);
 void				rrb(t_list **stack_b);

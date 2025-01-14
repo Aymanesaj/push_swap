@@ -6,33 +6,16 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:45:28 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/14 16:31:24 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/14 20:26:51 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/libftprintf.h"
-#include <stdio.h>
 #include "push_swap.h"
 
-void	print_list(t_list *head)
+int	ft_range(t_list *stack_a)
 {
-	if (!head)
-	{
-		ft_printf("List is empty\n");
-		return ;
-	}
-	while (head)
-	{
-		ft_printf("%d -> ", head->num);
-		head = head->next;
-	}
-	ft_printf("NULL\n");
-}
+	int	size;
 
-int ft_range(t_list *stack_a)
-{
-	int size;
-	
 	size = ft_lstsize(stack_a);
 	if (size <= 16)
 		return (3);
