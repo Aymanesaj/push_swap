@@ -6,11 +6,23 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 18:01:50 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/10 11:41:43 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/15 16:18:58 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i])
+		i++;
+	return (i);
+}
 
 void	ft_bzero(void *s, size_t n)
 {

@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:24:34 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/14 20:43:35 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/15 15:58:48 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	push_back(t_list **stack_b, t_list **stack_a)
 void	pa(t_list **stack_a, t_list **stack_b)
 {
 	ft_push(stack_a, stack_b);
-	ft_printf("pa\n");
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_list **stack_b, t_list **stack_a)
 {
 	ft_push(stack_b, stack_a);
-	ft_printf("pb\n");
+	write(1, "pb\n", 3);
 }

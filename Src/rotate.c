@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 09:48:24 by asajed            #+#    #+#             */
-/*   Updated: 2024/12/30 15:09:05 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/15 15:59:30 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ void	rotate(t_list **stack)
 void	ra(t_list **stack_a)
 {
 	rotate(stack_a);
-	ft_printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_list **stack_b)
 {
 	rotate(stack_b);
-	ft_printf("rb\n");
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_list **stack_a, t_list **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	ft_printf("rr\n");
+	write(1, "rr\n", 3);
 }

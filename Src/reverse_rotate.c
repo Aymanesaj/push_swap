@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 10:09:00 by asajed            #+#    #+#             */
-/*   Updated: 2024/12/30 15:09:12 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/15 15:59:13 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	rra(t_list **stack_a)
 	if (!stack_a || !(*stack_a))
 		return ;
 	reverse_rotate(stack_a);
-	ft_printf("rra\n");
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_list **stack_b)
@@ -43,7 +43,7 @@ void	rrb(t_list **stack_b)
 	if (!stack_b || !(*stack_b))
 		return ;
 	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_list **stack_a, t_list **stack_b)
@@ -54,5 +54,5 @@ void	rrr(t_list **stack_a, t_list **stack_b)
 		return ;
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	ft_printf("rrr\n");
+	write(1, "rrr\n", 4);
 }
