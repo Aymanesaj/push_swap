@@ -6,7 +6,7 @@
 /*   By: asajed <asajed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:15:51 by asajed            #+#    #+#             */
-/*   Updated: 2025/01/16 09:49:39 by asajed           ###   ########.fr       */
+/*   Updated: 2025/01/16 10:07:06 by asajed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,38 +29,46 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (1);
 }
 
+int	execute_command(t_list **stack_a, t_list **stack_b, char *str)
+{
+	if (ft_strcmp(str, "sa\n"))
+		ft_swap(*stack_a);
+	else if (ft_strcmp(str, "sb\n"))
+		ft_swap(*stack_b);
+	else if (ft_strcmp(str, "ss\n"))
+		(ft_swap(*stack_a), ft_swap(*stack_b));
+	else if (ft_strcmp(str, "pa\n"))
+		ft_push(stack_a, stack_b);
+	else if (ft_strcmp(str, "pb\n"))
+		ft_push(stack_b, stack_a);
+	else if (ft_strcmp(str, "ra\n"))
+		rotate(stack_a);
+	else if (ft_strcmp(str, "rb\n"))
+		rotate(stack_b);
+	else if (ft_strcmp(str, "rr\n"))
+		(rotate(stack_a), rotate(stack_b));
+	else if (ft_strcmp(str, "rra\n"))
+		reverse_rotate(stack_a);
+	else if (ft_strcmp(str, "rrb\n"))
+		reverse_rotate(stack_b);
+	else if (ft_strcmp(str, "rrr\n"))
+		(reverse_rotate(stack_a), reverse_rotate(stack_b));
+	else
+		return (-1);
+	return (0);
+}
+
 void	check_get_line(t_list **stack_a, t_list **stack_b, int *i)
 {
-	char	(*str);
+	char	*str;
 
 	str = get_next_line(0);
 	while (str)
 	{
-		if (ft_strcmp(str, "sa\n"))
-			ft_swap(*stack_a);
-		else if (ft_strcmp(str, "sb\n"))
-			ft_swap(*stack_b);
-		else if (ft_strcmp(str, "ss\n"))
-			(ft_swap(*stack_a), ft_swap(*stack_b));
-		else if (ft_strcmp(str, "pa\n"))
-			ft_push(stack_a, stack_b);
-		else if (ft_strcmp(str, "pb\n"))
-			ft_push(stack_b, stack_a);
-		else if (ft_strcmp(str, "ra\n"))
-			rotate(stack_a);
-		else if (ft_strcmp(str, "rb\n"))
-			rotate(stack_b);
-		else if (ft_strcmp(str, "rr\n"))
-			(rotate(stack_a), rotate(stack_b));
-		else if (ft_strcmp(str, "rra\n"))
-			reverse_rotate(stack_a);
-		else if (ft_strcmp(str, "rrb\n"))
-			reverse_rotate(stack_b);
-		else if (ft_strcmp(str, "rrr\n"))
-			(reverse_rotate(stack_a), reverse_rotate(stack_b));
-		else
+		if (execute_command(stack_a, stack_b, str) == -1)
 			*i = -1;
-		(free(str), str = get_next_line(0));
+		free(str);
+		str = get_next_line(0);
 	}
 }
 
